@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
+import CustomNav from '../customNav/index.js'
 import  './index.model.less'
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
+   
   } from '@ant-design/icons';
   
   const { Header, Sider, Content } = Layout;
@@ -27,7 +26,7 @@ class admin extends Component {
             <Layout>
             <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
               <div className="logo" />
-             这是侧边栏
+                <CustomNav></CustomNav>
             </Sider>
             <Layout className="site-layout">
               <Header className="site-layout-background" style={{ padding: 0 }}>
@@ -52,7 +51,7 @@ class admin extends Component {
                   minHeight: 280,
                 }}
               >
-                Content
+                {this.props.children}
               </Content>
             </Layout>
           </Layout>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-class user extends Component {
+class bookadd extends Component {
     constructor(props) {
         super(props);
         this.state = {  };
     }
     render() {
         return (
-            <div>这是用户界面</div>
+            <div>书籍添加</div>
         );
     }
 }
 
-export default user;
+export default bookadd;

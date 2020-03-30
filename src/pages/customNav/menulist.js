@@ -2,17 +2,34 @@ export default [
     {
         key:'1',
         title:'首页',
+        icon:'home',
         path:'/admin/home'
      },
      {
          key:'2',
          title:'管理员',
-         path:'admin/admins'
+         icon:'admin',
+         path:'/admin/admins',
+         children:[
+             {
+                key:'2-1',
+                title:'管理员列表',
+                icon:'admin',
+                path:'/admin/adminlist',
+             },
+             {
+                key:'2-2',
+                title:'管理员增加',
+                icon:'admin',
+                path:'/admin/adminadd',
+             },
+         ]
      },
      {
          key:'3',
          title:'用户管理',
-         path:'admin/user',
+         icon:'user',
+         path:'/admin/user',
          children:[
              {
             key:'3-1',
@@ -26,6 +43,31 @@ export default [
           }
      ]
          
-     }
+     },
+     {
+        key:'4',
+        title:'图书管理',
+        icon:'home',
+        path:'admin/book',
+        children:[
+            {
+           key:'4-1',
+           title:'图书添加',
+           path:'/admin/bookadd'
+        },
+        {
+            key:'4-2',
+            title:'图书列表',
+            path:'/admin/booklist'
+         }
+        ]
+     },
+     {
+        key:'5',
+        title:'设置',
+        icon:'home',
+        path:'/admin/set'
+     },
 
-]
+    
+        ]
