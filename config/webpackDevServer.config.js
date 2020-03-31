@@ -101,6 +101,7 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
+
     proxy:{//配置跨域
       '/hehe':{
         target:'http://101.200.230.157:3000/',
@@ -109,7 +110,6 @@ module.exports = function(proxy, allowedHost) {
           "^/hehe":''
         }
       }
-
     },
     before(app, server) {
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
