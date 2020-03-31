@@ -24,7 +24,9 @@ class admin extends Component {
     render() {
         return (
             <Layout>
-            <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+            <Sider trigger={null} collapsible collapsed={this.state.collapsed}
+            style={{height:'100vh'}}
+            >
               <div className="logo" />
                 <CustomNav></CustomNav>
             </Sider>

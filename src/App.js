@@ -11,6 +11,7 @@ import booklist from './pages/book/booklist'
 import set from './pages/set'
 import adminadd from './pages/Administrators/adminadd'
 import adminlist from './pages/Administrators/adminlist'
+// import { YellowBox } from 'react-native';
 
 import './App.css';
 function App() {
