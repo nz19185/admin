@@ -14,7 +14,6 @@ class Admin{
 updatePs(_id){
     let url = '/hehe/user/updatePs'
     return axios.post(url,_id)
-
 }
 
 }
