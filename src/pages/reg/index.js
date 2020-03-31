@@ -10,9 +10,9 @@ class Reg extends Component {
   let {userName,passWord} = e 
   let result = await api.reg({userName,passWord})
   console.log(result)
-  console.log(result.data.code)
-  if(result.data.code === 0 ){
-    message.success('登录成功，1s后跳转首页',1,()=>{
+  // console.log(result.data.code)
+  if(result.code === 0 ){
+    message.success('注册成功，1s后跳转首页',1,()=>{
       this.props.history.replace('/login')
     })
   }else{

@@ -11,8 +11,8 @@ class Login extends Component {
   let result = await api.login({userName,passWord})
   console.log(result)
   
-  if(result.data.code ==0 ){
-    console.log(this)
+  if(result.code ==0 ){
+    // console.log(this)
     message.success('登录成功，1s后跳转首页',1,()=>{
       this.props.history.replace('/admin')
     })
