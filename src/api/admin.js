@@ -3,12 +3,10 @@ import axios from '../untils/axio'
 // import axios from '../utils/axio'
 class Admin{
     // 注册
-    reg({us,ps}){
+    reg(us,ps){
         // console.log(us,ps)
         let url = '/hehe/user/reg'
-        return axios.get( url,{
-            us,ps
-        })
+        return axios.get( url,{params:{us,ps}})
       }
       // 登录
       login({us,ps}){

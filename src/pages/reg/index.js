@@ -9,7 +9,7 @@ class Reg extends Component {
   //  获取用户填写的数据 发起ajax请求 
   let {us,ps} = e 
   // console.log(us,ps)
-  let result = await api.reg({us,ps})
+  let result = await api.reg(us,ps)
  
   console.log(result.code)
   if(result.code === 0 ){
