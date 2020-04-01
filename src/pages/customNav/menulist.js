@@ -59,6 +59,11 @@ export default [
             key:'4-2',
             title:'图书列表',
             path:'/admin/booklist'
+         },
+         {
+            key:'4-3',
+            title:'查询的图书',
+            path:'/admin/searchbook'
          }
         ]
      },

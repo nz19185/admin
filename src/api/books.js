@@ -1,14 +1,14 @@
 import axios from '../untils/axio'
 class Books {
-  findOne(id){
-    let url ='/hehe/book/getinfoKey'+id
-    return axios.post(url)
-  }
-  bookList(page,pageSize){
-    // localhost:3000/goods?page=1&pageSize=5
-    let url ='/hehe/book/info'
-    return axios.post(url)
-  }
+//   findOne(id){
+//     let url ='/hehe/book/getinfoKey'+id
+//     return axios.post(url)
+//   }
+//   bookList(page,pageSize){
+//     // localhost:3000/goods?page=1&pageSize=5
+//     let url ='/hehe/book/info'
+//     return axios.post(url)
+//   }
   list(page=1,pageSize=2){
     // localhost:3000/goods?page=1&pageSize=5
     let url ='/hehe/book/getinfo'
@@ -26,6 +26,10 @@ class Books {
     let url ='/hehe/book/add'
     // console.log(name,auctor,price,booktype,desc,path)
     return axios.post(url,{name,auctor,price,booktype,desc,path})
+  }
+  findBookByKey(key){
+    let url ='/hehe/book/getinfoKey'
+    return axios.post(url,{key})
   }
 }
 
