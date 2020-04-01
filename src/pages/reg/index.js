@@ -7,11 +7,13 @@ class Reg extends Component {
   onFinish=async (e)=>{
    console.log('完成',e)
   //  获取用户填写的数据 发起ajax请求 
-  let {userName,passWord} = e 
-  let result = await api.reg({userName,passWord})
-  console.log(result)
-  // console.log(result.data.code)
+  let {us,ps} = e 
+  // console.log(us,ps)
+  let result = await api.reg({us,ps})
+ 
+  console.log(result.code)
   if(result.code === 0 ){
+    // console.log(us,ps)
     message.success('注册成功，1s后跳转首页',1,()=>{
       this.props.history.replace('/login')
     })
