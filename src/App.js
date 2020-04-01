@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter,Route,Redirect} from 'react-router-dom'
+import {HashRouter,Route,Redirect,Switch} from 'react-router-dom'
 import Reg from './pages/reg'
 import Login  from './pages/login'
 import Admin from './pages/admin'
@@ -23,6 +23,7 @@ function App() {
         <Route path='/admin' render={()=>{
           return(
             <Admin>
+                 <Switch>
                 <Route path='/admin/userlist' component={userlist} ></Route>
                 <Route path='/admin/useradd' component={useradd} ></Route>
                 <Route path='/admin/bookadd' component={bookadd} ></Route>
@@ -30,6 +31,8 @@ function App() {
                 <Route path='/admin/set' component={set} ></Route>
                 <Route path='/admin/adminadd' component={adminadd} ></Route>
                 <Route path='/admin/adminlist' component={adminlist} ></Route>
+                <Redirect path='/admin/adminlist' component={adminlist}></Redirect>
+                </Switch>
 
             </Admin>
           )

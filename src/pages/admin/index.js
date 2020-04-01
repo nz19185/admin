@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Layout, Menu } from 'antd';
 import CustomNav from '../customNav/index.js'
 import  './index.model.less'
+import Head from '../customNav/head.js'
+
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
@@ -39,10 +41,16 @@ class admin extends Component {
                   style:{
                       fontSize:'20px'
                   }
-
                 })}
-               
+                
                   </div>
+                  <div className='sit-layout-sel'>
+                  <Head></Head>
+                  </div>
+                  
+                 
+                
+                 
                
               </Header>
               <Content
