@@ -47,11 +47,6 @@ class admin extends Component {
                   <div className='sit-layout-sel'>
                   <Head></Head>
                   </div>
-                  
-                 
-                
-                 
-               
               </Header>
               <Content
                 className="site-layout-background"

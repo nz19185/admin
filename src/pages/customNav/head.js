@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown, Avatar, Input} from 'antd';
+import { Menu, Dropdown, Avatar, Input,message} from 'antd';
 import { DownOutlined, UserOutlined, ToolOutlined, LoginOutlined, BellOutlined } from '@ant-design/icons';
+import api from '../../api/book'
+import {withRouter} from 'react-router-dom'
 const { Search } = Input;
 const menu = (<Menu style={{}}>
     <Menu.Item >
@@ -38,8 +40,18 @@ class head extends Component {
             <div>
                 <span style={{marginRight:'20px'}}>
                     <Search
-                    placeholder="input search text"
-                    onSearch={value => console.log(value)}
+                    placeholder="请输入您要查询的书籍"
+                    onSearch={async (value)=>{
+                          let result =await api.findBookByKey(value)
+                          console.log(result)
+                          const pay =result.list
+                          if(result.list!=''){
+                            message.success('查询成功')
+                            this.props.history.push({pathname:'/admin/searchbook',state:pay})
+                          }else{
+                            message.error('查无此书')
+                          }       
+                    }}
                     style={{ width: 200 }}
                 /></span>
                 <span style={{ marginRight: '20px', marginTop: '30px' }}><BellOutlined style={{ fontSize: '20px' }} /></span>
@@ -55,4 +67,4 @@ class head extends Component {
     }
 }
 
-export default head;
+export default  withRouter(head);

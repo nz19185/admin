@@ -148,7 +148,7 @@ class Adminlist extends Component {
             <Card title='管理员管理' hoverable='true' >
                 <Spin spinning={spinning}>
                     <Table columns={columns} dataSource={datasouce}
-                        scroll={{ y: 400 }}
+                        scroll={{ y: 350 }}
                         rowKey='_id'
                     ></Table>
                 </Spin>

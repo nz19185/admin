@@ -12,6 +12,7 @@ import set from './pages/set'
 import adminadd from './pages/Administrators/adminadd'
 import adminlist from './pages/Administrators/adminlist'
 // import { YellowBox } from 'react-native';
+import searchbook from './pages/book/searchbook'
 
 import './App.css';
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/admin/set' component={set} ></Route>
                 <Route path='/admin/adminadd' component={adminadd} ></Route>
                 <Route path='/admin/adminlist' component={adminlist} ></Route>
+                <Route path='/admin/searchbook' component={searchbook} ></Route>
                 <Redirect path='/admin/adminlist' component={adminlist}></Redirect>
                 </Switch>
 
