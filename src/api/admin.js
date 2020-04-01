@@ -26,10 +26,9 @@ class Admin{
      return axios.post(url,_id)
  }
 //修改密码
-updatePs(_id){
+updatePs(obj){
     let url='/hehe/user/updatePs'
-    return axios.post(url,_id)
-
+    return axios.post(url,obj)
 }
 
 }

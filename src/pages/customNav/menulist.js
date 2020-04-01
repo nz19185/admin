@@ -19,7 +19,7 @@ export default [
              },
              {
                 key:'2-2',
-                title:'管理员增加',
+                title:'管理员信息',
                 icon:'admin',
                 path:'/admin/adminadd',
              },
