@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Table, Tag, Button, Card, Popconfirm, message, Modal,Input,Spin, Alert } from 'antd';
+import { Table, Tag, Button, Card, Popconfirm, message, Modal, Input, Spin, Alert } from 'antd';
 import api from '../../../api/admin.js'
 import { ApiFilled } from '@ant-design/icons';
 class Adminlist extends Component {
     state = {
         datasouce: [],
         visible: false,
-        spinning:false,
+        spinning: false,
+        inputVla:[],
+        _id:'',
         columns: [
             {
                 title: '_id',
@@ -23,7 +25,7 @@ class Adminlist extends Component {
             {
                 title: '操作',
                 key: 'action',
-                render: (index) => {
+                render: (recode) => {
                     return (
                         // 气泡确认框
                         <div>
@@ -33,31 +35,41 @@ class Adminlist extends Component {
                                     message.error('取消删除')
                                 }}
                                 onConfirm={() => {
-                                    this.deladmin(index._id)
+                                    this.deladmin(recode._id)
                                 }}
-
                             >
                                 <Button danger='true' >删除</Button>
                             </Popconfirm>
-                            <Button type="primary" onClick={this.showModal}>
+                            <Button type="primary" onClick={()=>{
+                                // console.log(recode._id);
+                                this.setState({
+                                        visible: true,
+                                        _id:recode._id
+                                        });
+                                
+                            }}>
                                 更改密码
                            </Button>
                             <Modal
-                             title="更改您的密码"
-                             visible={this.state.visible}
-                             onOk={()=>{
-                                        // console.log(e);
-                                        this.setState({
-                                          visible: false,
-                                        });
-                                        //  this.updateps(index._id)
-                                   
-                             }}
-                             onCancel={this.handleCancel}
-                                
+                                title="更改您的密码"
+                                visible={this.state.visible}
+                                onOk={() => {
+                                    // console.log(recode);
+                                    this.setState({
+                                        visible: false,
+                                    });
+                                     this.updateps({_id:this.state._id,ps:this.state.inputVla})
+
+                                }}
+                                onCancel={this.handleCancel}
+
                             >
-                               <p>输入您的新密码</p>
-                               <Input.Password placeholder="input password" />
+                                <p>输入您的新密码</p>
+                                <Input.Password placeholder="input password"  onChange={(e)=>{
+                                    this.setState({inputVla:e.target.value})
+                                    // console.log(e.target.value);
+                                    
+                                }} />
                             </Modal>
 
 
@@ -71,12 +83,12 @@ class Adminlist extends Component {
         ]
     };
 
-    showModal = () => {
-        this.setState({
-          visible: true,
-        });
-      };
-    
+    // showModal = (recode) => {
+    //     this.setState({
+    //         visible: true,
+    //     });
+    // };
+
     //   handleOk = (e) => {
     //     // console.log(e);
     //     this.setState({
@@ -84,22 +96,22 @@ class Adminlist extends Component {
     //     });
     //     // this.updateps(_id)
     //   };
-    
-      handleCancel = e => {
+
+    handleCancel = e => {
         console.log(e);
         this.setState({
-          visible: false,
+            visible: false,
         });
-      };
+    };
     //获取管理员列表
     getList = async () => {
-        this.setState({spinning:true})
+        this.setState({ spinning: true })
         let result = await api.adminList()
         //   console.log(result);
         //   let list =result.lsit
         //   console.log(list);
 
-        this.setState({ datasouce: result.lsit ,spinning:false})
+        this.setState({ datasouce: result.lsit, spinning: false })
 
     }
     //删除管理员
@@ -121,24 +133,24 @@ class Adminlist extends Component {
     }
 
     //修改密码
-    updateps = async (_id) => {
-        //  console.log(ps);  
-        let result = await api.updatePs({ _id })
+    updateps = async (obj) => {
+          console.log(obj);  
+        let result = await api.updatePs(obj)
         console.log(result);
     }
     componentDidMount() {
         this.getList();
     }
     render() {
-        let { columns, datasouce,spinning } = this.state
+        let { columns, datasouce, spinning } = this.state
         // console.log(datasouce); 
         return (
             <Card title='管理员管理' hoverable='true' >
                 <Spin spinning={spinning}>
-                <Table columns={columns} dataSource={datasouce}
-                 scroll={{y:400}}
-                 rowKey='_id'
-                ></Table>
+                    <Table columns={columns} dataSource={datasouce}
+                        scroll={{ y: 400 }}
+                        rowKey='_id'
+                    ></Table>
                 </Spin>
             </Card>
         );
