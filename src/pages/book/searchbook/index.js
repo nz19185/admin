@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Tag, Button, Card, Popconfirm, message, Modal, Input, Spin, Alert } from 'antd';
-import api from '../../../api/admin.js'
-import { ApiFilled } from '@ant-design/icons';
+
 class searchbook extends Component {
     state = {
         datasouce: [],
@@ -65,7 +64,7 @@ class searchbook extends Component {
             localStorage.setItem('hehe',JSON.stringify (list))
         }
         
-        console.log(list);
+        console.log( 'list',list);
         // let {datasouce}=this.state
         const  xixi= JSON.parse( localStorage.getItem('hehe'))
         this.setState({datasouce:xixi})

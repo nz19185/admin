@@ -13,25 +13,28 @@ class bookupdate extends Component {
            
       }
        async componentDidMount(){
-        console.log(this)
+        // console.log(this)
         // // 获取 id
         let  id  = this.props.location.state
-        console.log(id)
+        // console.log(id)
         // // 获取的类别列表信息
         // let result = await goodsApi.kindlist()
         // // 通过 id  获取修改信息
         let result = await booksApi.findOne(id)
-        console.log(result)
+        // console.log(result)
        
-        // this.setState(...info[0] )
+        this.setState(result.list)
         
       }
       // 修改商品
       submit=async()=>{
-        //   console.log(this.state)
-        let {name,auctor,price,booktype,desc,path} = this.state
-       let {code,msg}  = await booksApi.update(name,auctor,price,booktype,desc,path)
-    //    console.log(code,msg)
+        // let  id  = this.props.location.state
+        // console.log(id)
+          // console.log(this.state)
+
+        let {_id,name,auctor,price,booktype,desc,path} = this.state
+       let {code,msg}  = await booksApi.update(_id,name,auctor,price,booktype,desc,path)
+      //  console.log(code,msg)
        if(code){ return message.error(msg)}
     //    console.log(this)
        this.props.history.replace('/admin/booklist')
@@ -42,7 +45,7 @@ class bookupdate extends Component {
         let {name,desc,path,price,auctor,booktype} = this.state
         return ( 
           <div className={style.box}>
-             <Card title='书籍添加'>
+             <Card title='书籍修改'>
                 名称: <input type='text' value={name} onChange={(e)=>{
                   this.setState({name:e.target.value})
                 }}/><br/>

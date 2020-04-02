@@ -1,5 +1,6 @@
 import React from 'react';
-import {HashRouter,Route,Redirect,Switch} from 'react-router-dom'
+import {HashRouter,Route,Redirect,Switch,BrowserRouter} from 'react-router-dom'
+// import {createBrowserHistory} from 'history'
 import Reg from './pages/reg'
 import Login  from './pages/login'
 import Admin from './pages/admin'
@@ -14,18 +15,20 @@ import adminadd from './pages/Administrators/adminadd'
 import adminlist from './pages/Administrators/adminlist'
 // import { YellowBox } from 'react-native';
 import searchbook from './pages/book/searchbook'
+// const browserhostory =createBrowserHistory()
 
 import './App.css';
 function App() {
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
+      <Switch>
         <Route path='/reg' component={Reg} ></Route>
         <Route path='/login' component={Login}></Route>
         <Route path='/admin' render={()=>{
           return(
             <Admin>
-                 <Switch>
+                 
                 <Route path='/admin/userlist' component={userlist} ></Route>
                 <Route path='/admin/useradd' component={useradd} ></Route>
                 <Route path='/admin/bookadd' component={bookadd} ></Route>
@@ -35,17 +38,17 @@ function App() {
                 <Route path='/admin/adminadd' component={adminadd} ></Route>
                 <Route path='/admin/adminlist' component={adminlist} ></Route>
                 <Route path='/admin/searchbook' component={searchbook} ></Route>
-                <Redirect path='/admin/adminlist' component={adminlist}></Redirect>
-                </Switch>
-
             </Admin>
           )
 
-        }}></Route>
-       
+        }}>
+        
+        </Route>
+        <Redirect from='/*' to='/reg'></Redirect>
+        </Switch>
 
 
-      </HashRouter>
+      </BrowserRouter>
 
 
     </div>
