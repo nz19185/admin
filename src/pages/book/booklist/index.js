@@ -27,8 +27,11 @@ class booklist extends Component {
                   <Button type='danger' size='small'>删除</Button>
                 </Popconfirm>
                 <Button type='primary' size='small' onClick={()=>{
+                  // let result  = booksApi.findOne(recode._id)
+                  // console.log(result)
                   // 跳转到修改页面 传递要修改的id 
-                  this.props.history.replace('/admin/bookUpdate/'+recode._id)
+                  console.log(this)
+                  this.props.history.push({pathname:'/admin/bookUpdate/',state:recode._id})
                 }}>修改</Button>
               </div>
             )

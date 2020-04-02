@@ -7,6 +7,7 @@ import userlist from './pages/user/userlist'
 import useradd from './pages/user/useradd'
 import Administrators from './pages/Administrators'
 import bookadd from './pages/book/bookadd'
+import bookupdate from './pages/book/bookUpdate'
 import booklist from './pages/book/booklist'
 import set from './pages/set'
 import adminadd from './pages/Administrators/adminadd'
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/admin/userlist' component={userlist} ></Route>
                 <Route path='/admin/useradd' component={useradd} ></Route>
                 <Route path='/admin/bookadd' component={bookadd} ></Route>
+                <Route path='/admin/bookUpdate' component={bookupdate} ></Route>
                 <Route path='/admin/booklist' component={booklist} ></Route>
                 <Route path='/admin/set' component={set} ></Route>
                 <Route path='/admin/adminadd' component={adminadd} ></Route>

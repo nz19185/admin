@@ -57,7 +57,7 @@ class searchbook extends Component {
     
     
     componentDidMount() {
-        console.log(this);
+        // console.log(this);
         
         // console.log(this.props.location.state);
         const list =this.props.location.state
