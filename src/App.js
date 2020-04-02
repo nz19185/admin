@@ -1,23 +1,31 @@
 import React from 'react';
-import {HashRouter,Route,Redirect,Switch,BrowserRouter} from 'react-router-dom'
+import {Route,Redirect,Switch,BrowserRouter} from 'react-router-dom'
+import loadalbe from "./utils/loadable"
 // import {createBrowserHistory} from 'history'
-import Reg from './pages/reg'
-import Login  from './pages/login'
+// import Reg from './pages/reg'
+// import Login  from './pages/login'
+// import  Login from './pages/login/loadableLogin'
 import Admin from './pages/admin'
 import userlist from './pages/user/userlist'
 import useradd from './pages/user/useradd'
-import Administrators from './pages/Administrators'
+// import Administrators from './pages/Administrators'
 import bookadd from './pages/book/bookadd'
 import bookupdate from './pages/book/bookUpdate'
-import booklist from './pages/book/booklist'
+// import booklist from './pages/book/booklist'
 import set from './pages/set'
 import adminadd from './pages/Administrators/adminadd'
-import adminlist from './pages/Administrators/adminlist'
+// import adminlist from './pages/Administrators/adminlist'
 // import { YellowBox } from 'react-native';
 import searchbook from './pages/book/searchbook'
 import Check from './pages/check'
 // const browserhostory =createBrowserHistory()
-import './App.css';
+const Login = loadalbe(()=>import('./pages/login/index'))
+const Reg = loadalbe(()=>import('./pages/reg/index'))
+const adminlist = loadalbe(()=>import('./pages/Administrators/adminlist/index'))
+const booklist = loadalbe(()=>import('./pages/book/booklist/index'))
+
+// import './App.css';
+// import './App.css';
 function isLogin(){
   if(!localStorage.getItem('user')){
       return false
@@ -63,7 +71,7 @@ function App() {
         }}>
         
         </Route>
-        <Redirect from='/*' to='/reg'></Redirect>
+        <Redirect from='/*' to='/login'></Redirect>
         </Switch>
 
 
