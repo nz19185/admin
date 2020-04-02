@@ -62,6 +62,7 @@ class head extends Component {
                           const pay =result.list
                           if(result.list!=''){
                             message.success('查询成功')
+                            localStorage.setItem('hehe',JSON.stringify(pay))
                             this.props.history.push({pathname:'/admin/searchbook',state:pay})
                           }else{
                             message.error('查无此书')
@@ -79,6 +80,7 @@ class head extends Component {
                           const pay =result.list
                           if(result.list!=''){
                             message.success('查询成功')
+                            localStorage.setItem('hehe',JSON.stringify(pay))
                             this.props.history.push({pathname:'/admin/searchbook',state:pay})
                           }else{
                             message.error('查无此书')

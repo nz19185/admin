@@ -8,6 +8,7 @@ class searchbook extends Component {
         spinning: false,
         inputVla:[],
         _id:'',
+        flag:true,
         columns: [
             {
                 title: '_id',
@@ -52,29 +53,21 @@ class searchbook extends Component {
     };
 
     
+    componentDidMount(){
+        if(localStorage.getItem('hehe')){
+                const  xixi= JSON.parse( localStorage.getItem('hehe'))
+            this.setState({datasouce:xixi})
+            console.log(this);
+            
+            }
+        //  location.reload()
+        // this.props.history.go(0)
+      
 
-    
-    
-    componentDidMount() {
-        // console.log(this);
-        
-        // console.log(this.props.location.state);
-        const list =this.props.location.state
-        if(list){
-            localStorage.setItem('hehe',JSON.stringify (list))
-        }
-        
-        console.log( 'list',list);
-        // let {datasouce}=this.state
-        const  xixi= JSON.parse( localStorage.getItem('hehe'))
-        this.setState({datasouce:xixi})
-        // console.log(this.state.datasouce);
-        
-        
-        
-        
     }
+    
     render() {
+     
         let { columns, datasouce, spinning } = this.state
         // console.log(datasouce); 
         return (
