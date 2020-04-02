@@ -16,7 +16,8 @@ class Login extends Component {
     message.success('登录成功',1,()=>{
       // console.log(us)
       localStorage.setItem('user',us)
-      // this.props.history.replace('/admin/adminlist')
+      
+      this.props.history.replace('/admin/adminlist')
     })
 
   }else{
