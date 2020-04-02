@@ -74,7 +74,7 @@ class bookupdate extends Component {
                   })}
                 </select> */}
                
-                <button onClick={this.submit}>修改</button>
+                <button onClick={this.submit} className={style.upt}>修改</button>
              </Card>
           </div>
          );

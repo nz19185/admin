@@ -63,7 +63,7 @@ class bookadd extends Component {
                   })}
                 </select> */}
                
-                <button onClick={this.submit}>添加</button>
+                <button onClick={this.submit} className={style.btn}>添加</button>
              </Card>
           </div>
          );
