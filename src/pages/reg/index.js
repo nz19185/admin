@@ -58,10 +58,11 @@ class Reg extends Component {
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Password" />
       </Form.Item>
       {/* 登录按钮 */}
       <Form.Item>
+        <span className={style.kg}></span>
         <Button type="primary" htmlType="submit" >
           注册
         </Button>

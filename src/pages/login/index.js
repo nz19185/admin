@@ -16,7 +16,7 @@ class Login extends Component {
     message.success('登录成功',1,()=>{
       // console.log(us)
       localStorage.setItem('user',us)
-      // this.props.history.replace('/admin/adminlist')
+      this.props.history.replace('/admin/adminlist')
     })
 
   }else{
@@ -67,16 +67,28 @@ class Login extends Component {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
-        <a className="login-form-forgot" href="">
+        <span>
           Forgot password
-        </a>
+        </span>
       </Form.Item>
       {/* 登录按钮 */}
       <Form.Item>
+        <span className={style.kg}></span>
         <Button type="primary" htmlType="submit" className="login-form-button">
           登录
         </Button>
+        
       </Form.Item>
+      <span className={style.test} >
+          ！若未注册，请先注册
+      </span>
+      <button className={style.reg} 
+       onClick={()=>{
+        //  console.log(this)
+         this.props.history.replace('/reg')
+       }}
+      >注册</button>
+      
     </Form>
 </div>
      );

@@ -1,11 +1,13 @@
 import React from 'react'
 import LoadAble from 'react-loadable'
-
+import style from './index.module.less'
 
 // 过度组件
 function LogingComponent (){
   return(
-    <div>这里是过度组件</div>
+    <div className={style.box}>
+    <div className={style.test}>您好，正在加载中...</div>
+    </div>
   )
 }
 

@@ -45,7 +45,7 @@ class bookupdate extends Component {
         let {name,desc,path,price,auctor,booktype} = this.state
         return ( 
           <div className={style.box}>
-             <Card title='书籍修改'>
+             <Card title='书籍修改' className={style.pop}>
                 名称: <input type='text' value={name} onChange={(e)=>{
                   this.setState({name:e.target.value})
                 }}/><br/>
@@ -63,8 +63,7 @@ class bookupdate extends Component {
                   this.setState({price:e.target.value})
                 }}/><br/>
                 {/* 渲染类别 */}
-                类别:
-                <input type='text' value={booktype} onChange={(e)=>{
+                类别: <input type='text' value={booktype} onChange={(e)=>{
                   this.setState({booktype:e.target.value})
                 }}/><br/>
                 {/* <select value={kind} onChange={(e)=>{
