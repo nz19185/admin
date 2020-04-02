@@ -11,16 +11,18 @@ class Reg extends Component {
   // console.log(us,ps)
   let result = await api.reg(us,ps)
  
-  console.log(result.code)
+  // console.log(result.code)
   if(result.code === 0 ){
     // console.log(us,ps)
-    message.success('注册成功，1s后跳转首页',1,()=>{
+    message.success('注册成功',1,()=>{
       this.props.history.replace('/login')
     })
+  }else if(result.code === -1){
+    message.error('用户名已存在')
   }else{
-    console.log("注册失败")
+    message.error('注册失败，请重试')
   }
-  }
+}
   render() { 
     return ( 
     <div className={style['reg-box']}>

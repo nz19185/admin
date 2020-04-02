@@ -5,20 +5,22 @@ import { UserOutlined} from '@ant-design/icons';
 import style from './index.module.less'
 class Login extends Component {
   onFinish=async (e)=>{
-   console.log('完成',e)
+  //  console.log('完成',e)
   //  获取用户填写的数据 发起ajax请求 
   let {us,ps} = e 
   let result = await api.login(us,ps)
-  console.log(result)
+  // console.log(result)
   
-  if(result.code ==0 ){
+  if(result.code === 0 ){
     // console.log(this)
-    message.success('登录成功，1s后跳转首页',1,()=>{
-      this.props.history.replace('/admin/adminlist')
+    message.success('登录成功',1,()=>{
+      // console.log(us)
+      localStorage.setItem('user',us)
+      // this.props.history.replace('/admin/adminlist')
     })
 
   }else{
-    message.error('用户名密码错误')
+    message.error('用户名不存在或密码有误，请重试')
   }
   }
   render() { 

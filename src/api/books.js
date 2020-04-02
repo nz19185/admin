@@ -1,9 +1,9 @@
 import axios from '../untils/axio'
 class Books {
-//   findOne(id){
-//     let url ='/hehe/book/getinfoKey'+id
-//     return axios.post(url)
-//   }
+  findOne(_id){
+    let url ='/hehe/book/getinfoId'
+    return axios.post(url,{_id})
+  }
 //   bookList(page,pageSize){
 //     // localhost:3000/goods?page=1&pageSize=5
 //     let url ='/hehe/book/info'
@@ -20,10 +20,9 @@ class Books {
     let url ='/hehe/book/del'
     return axios.post(url,_id)
   }
-  //修改书籍
-  update(_id){
-    let url =`/hehe/book/update${_id}`
-    return axios.post(url)
+  update(_id,name,auctor,price,booktype,desc,path){
+    let url ='/hehe/book/update'
+    return axios.post(url,{_id,name,auctor,price,booktype,desc,path})
   }
   //增加书籍
   add(name,auctor,price,booktype,desc,path){
