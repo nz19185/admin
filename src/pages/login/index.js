@@ -7,14 +7,14 @@ class Login extends Component {
   onFinish=async (e)=>{
    console.log('完成',e)
   //  获取用户填写的数据 发起ajax请求 
-  let {userName,passWord} = e 
-  let result = await api.login({userName,passWord})
+  let {us,ps} = e 
+  let result = await api.login(us,ps)
   console.log(result)
   
   if(result.code ==0 ){
     // console.log(this)
     message.success('登录成功，1s后跳转首页',1,()=>{
-      this.props.history.replace('/admin')
+      this.props.history.replace('/admin/adminlist')
     })
 
   }else{

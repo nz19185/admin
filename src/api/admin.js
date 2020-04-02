@@ -9,7 +9,7 @@ class Admin{
         return axios.get( url,{params:{us,ps}})
       }
       // 登录
-      login({us,ps}){
+      login(us,ps){
         let url = '/hehe/user/login'
         return axios.post(url,{us,ps})
       }

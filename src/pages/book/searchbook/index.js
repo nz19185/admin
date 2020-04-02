@@ -64,7 +64,7 @@ class searchbook extends Component {
             localStorage.setItem('hehe',JSON.stringify (list))
         }
         
-        console.log(list);
+        console.log( 'list',list);
         // let {datasouce}=this.state
         const  xixi= JSON.parse( localStorage.getItem('hehe'))
         this.setState({datasouce:xixi})
