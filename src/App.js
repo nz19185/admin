@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Redirect,Switch,BrowserRouter} from 'react-router-dom'
+import {Route,Redirect,Switch,BrowserRouter,HashRouter} from 'react-router-dom'
 import loadalbe from "./utils/loadable"
 // import {createBrowserHistory} from 'history'
 // import Reg from './pages/reg'
@@ -36,7 +36,7 @@ function isLogin(){
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
       <Switch>
         <Route path='/reg' component={Reg} ></Route>
         <Route path='/login' component={Login}></Route>
@@ -73,9 +73,7 @@ function App() {
         </Route>
         <Redirect from='/*' to='/login'></Redirect>
         </Switch>
-
-
-      </BrowserRouter>
+      </HashRouter>
 
 
     </div>
